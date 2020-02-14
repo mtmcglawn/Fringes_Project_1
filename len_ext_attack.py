@@ -24,6 +24,7 @@ def main():
 			message = split_address[1]
 			#Calculates the length of the message to mimic
 			length_of_m = PASSWORD_LENGTH + len(message)
+			print(str(length_of_m))
 			#Calculates the bits of message
 			bits = (length_of_m + len(padding(length_of_m * 8))) * 8
 			#"Preps" the md5 algorigthm
