@@ -18,18 +18,21 @@ def main():
 			get_token = split_address[0].split("=")
 			#Splits directly before the token
 			new_address += get_token[0] + "="
+			#Gets the token
 			token = get_token[1]
+			#Gets the message behind the token
 			message = split_address[1]
+			#Calculates the length of the message to mimic
 			length_of_m = PASSWORD_LENGTH + len(message)
+			#Calculates the bits of message
 			bits = (length_of_m + len(padding(length_of_m * 8))) * 8
+			#"Preps" the md5 algorigthm
 			h = md5(state = decode(token, "hex"), count = bits)
+			#Hashes the message to be appended with the old message
 			h.update(NEW_MESSAGE)
+			#Creates the new URL with the binary padding
 			new_address += h.hexdigest() + "&" + message + quote(padding(length_of_m * 8)) + NEW_MESSAGE
-			# new_address = new_address.encode() + padding(length_of_m * 8) + NEW_MESSAGE.encode()
 			print(new_address)
-			# print(get_token[0] + new_token + message + new_message)
-			# # answer = m.encode() + padding(len(m) * 8) + x.encode()
-			# # print(answer)
 
 if __name__ == '__main__':
 	main()
