@@ -4,7 +4,7 @@ from codecs import decode
 from pymd5 import md5, padding
 
 PASSWORD_LENGTH = 8
-NEW_MESSAGE = "&action2=unlock-all-safes&customer="#&user=admin&action1=unlock-all-safes
+NEW_MESSAGE = "&action2=unlock-all-safes&customer="
 
 def main():
 	if len(sys.argv) < 2:
